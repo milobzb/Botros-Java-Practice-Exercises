@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class App {
+ + main(args: String[]): void
+ + countWords(): String
+}
+class File
+class HashMap
+class Scanner
+class FileNotFoundException
+
+App ..> Scanner
+App ..> HashMap
+App ..> FileNotFoundException
+Scanner ..> File
+
+@enduml

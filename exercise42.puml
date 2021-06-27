@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class App {
+ +parseFile(fileName: String): String
+ +main(args: String[]): void
+}
+class File
+class FileNotFoundException
+class Scanner
+
+App ..> Scanner
+Scanner ..> FileNotFoundException
+Scanner ..> File
+
+@enduml

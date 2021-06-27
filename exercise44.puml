@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class App {
+     + main(args: String[]): void
+     + searchProduct(productName: String): String
+
+}
+class JSONParser
+class JSONArray
+class JSONObject
+class FileReader
+class BufferedReader
+class InputStreamReader
+class Exception
+
+
+App ..> JSONParser
+App ..> JSONObject
+App ..> JSONArray
+App ..> Exception
+App ..> BufferedReader
+BufferedReader ..> InputStreamReader
+JSONParser ..> FileReader
+
+@enduml
