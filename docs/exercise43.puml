@@ -1,8 +1,12 @@
 @startuml
 'https://plantuml.com/class-diagram
 class App {
-  + folder(sitename: String, author: String, javascript: String, css: String): void
   + main(args: String[]): void
+}
+
+class FileUtility {
+  + addFolder(sitename: String, author: String, javascript: String, css: String): void
+
 }
 class File
 class Scanner
@@ -10,9 +14,10 @@ class BufferedWriter
 class FileWriter
 class IOException
 
-App ..> Scanner
-App ..> BufferedWriter
-App ..> IOException
+App ..> FileUtility
+FileUtility ..> Scanner
+FileUtility ..> BufferedWriter
+FileUtility ..> IOException
 BufferedWriter ..> FileWriter
 FileWriter ..> File
 

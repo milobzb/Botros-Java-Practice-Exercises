@@ -3,6 +3,9 @@
 
 class App {
      + main(args: String[]): void
+
+}
+class ProductSearch {
      + searchProduct(productName: String): String
 
 }
@@ -14,12 +17,12 @@ class BufferedReader
 class InputStreamReader
 class Exception
 
-
-App ..> JSONParser
-App ..> JSONObject
-App ..> JSONArray
-App ..> Exception
-App ..> BufferedReader
+App ..> ProductSearch
+ProductSearch ..> JSONParser
+ProductSearch ..> JSONObject
+ProductSearch ..> JSONArray
+ProductSearch ..> Exception
+ProductSearch ..> BufferedReader
 BufferedReader ..> InputStreamReader
 JSONParser ..> FileReader
 

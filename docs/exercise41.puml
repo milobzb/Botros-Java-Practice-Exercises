@@ -1,13 +1,19 @@
 @startuml
 'https://plantuml.com/class-diagram
 class App {
-  + readFile(a: String): List<String>
-  + sortNames(names: List<String>): List<String>
-  + writeFile(fileName: String, names: List<String>): void
+
   + main(args: String[]): void
 }
-interface List
-class ArrayList
+
+class FileUtility {
+  + readFile(a: String): List<String>
+  + writeFile(fileName: String, names: List<String>): void
+}
+
+class StringUtility {
+  + sortList(names: List<String>): List<String>
+}
+
 class File
 class BufferedReader
 class FileReader
@@ -17,12 +23,12 @@ class Collections
 class FileWriter
 class PrintWriter
 
-App ..> List
-App ..> BufferedReader
-App ..> IOException
-App ..> Collections
-App ..> PrintWriter
-List <|.. ArrayList
+App ..> StringUtility
+App ..> FileUtility
+StringUtility ..> Collections
+FileUtility ..> BufferedReader
+FileUtility ..> IOException
+FileUtility ..> PrintWriter
 BufferedReader ..> FileReader
 FileReader ..> File
 Exception <|-- IOException
