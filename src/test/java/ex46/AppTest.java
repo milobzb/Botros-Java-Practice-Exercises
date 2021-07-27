@@ -1,17 +1,7 @@
 package ex46;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import ex46.App;
 import org.junit.Test;
-
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 
 /**
@@ -19,6 +9,7 @@ import java.nio.file.Paths;
  */
 public class AppTest
 {
+    FileUtility fileUtility = new FileUtility();
     @Test
     public void testCountWords()
     {
@@ -26,7 +17,7 @@ public class AppTest
             String expected = "badger *******\n" +
                     "mushroom **\n" +
                     "snake *\n";
-           String result = App.countWords();
+           String result = fileUtility.countWords("exercise46_input.txt");
            assertEquals(expected, result);
         } catch (IOException e) {
             e.printStackTrace();

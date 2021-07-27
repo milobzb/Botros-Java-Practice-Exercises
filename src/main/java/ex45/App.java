@@ -4,30 +4,19 @@ package ex45;
  *  Copyright 2021 Emanuel Botros
  */
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class App
 {
     public static void main( String[] args ) throws IOException {
         Scanner reader = new Scanner(System.in);
+        FileUtility fileUtility = new FileUtility();
 
         System.out.print("Enter new file name: ");
         String filename = reader.nextLine();
 
-        thepath(filename);
+        //replaceText is called in from FileUtility class with the the name of the file, word to be replaced, and the replacement for current word
+        FileUtility.replaceText(filename, "utilize", "use");
     }
-    public static void thepath( String filename ) throws IOException{
-        Path path = Paths.get("exercise45_input.txt");
-        Charset charset = StandardCharsets.UTF_8;
 
-        String content = Files.readString(path, charset);
-        content = content.replaceAll("utilize", "use");
-
-        Files.write(Path.of(filename), content.getBytes(charset));
-    }
 }

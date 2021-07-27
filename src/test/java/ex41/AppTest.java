@@ -1,9 +1,9 @@
 package ex41;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
-import java.sql.Array;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +12,14 @@ import java.util.List;
  */
 public class AppTest 
 {
+    StringUtility stringUtility = new StringUtility();
+    FileUtility fileUtility = new FileUtility();
     @Test
     public void testSortEmptyList()
     {
         List<String> emptyList = new ArrayList<String>();
-        List<String> resultList = App.sortNames(emptyList);
+        //List<String> resultList = App.sortNames(emptyList);
+        List<String> resultList = stringUtility.sortList(emptyList);
         assertEquals(emptyList, resultList);
     }
     /**
@@ -37,7 +40,7 @@ public class AppTest
         sortedNames.add("Charlie");
         sortedNames.add("Delta");
 
-        List<String> resultNames = App.sortNames(unsortedNames);
+        List<String> resultNames = stringUtility.sortList(unsortedNames);
 
         assertEquals(resultNames, sortedNames);
     }

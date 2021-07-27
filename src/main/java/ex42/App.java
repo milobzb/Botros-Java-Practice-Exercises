@@ -1,44 +1,23 @@
 package ex42;
-
-import java.io.File;
+/*
+ *  UCF COP3330 Summer 2021 Assignment 3 Solution
+ *  Copyright 2021 Emanuel Botros
+ */
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+
 
 public class App
 {
     public static void main( String[] args ) {
+
+        FileUtility fileUtility = new FileUtility();
         try
         {
-            String result = parseFile("exercise42_input.txt");
+            String result = fileUtility.parseFile("exercise42_input.txt"); //Takes in parseFile method and prints input file in ascending order
             System.out.println(result);
-        } catch (FileNotFoundException e)
+        } catch (FileNotFoundException e)   //If file input does not exist, the following message is printed
         {
             System.out.println("File does not exist");
         }
-    }
-
-    public static String parseFile(String fileName) throws FileNotFoundException
-    {
-        // Scan the file and use delimiters: , (comma) and \r\n (new line)
-        Scanner reader = new Scanner (new File(fileName));
-        reader.useDelimiter("(,)|(\\r\\n)");
-
-        String lastName, firstName, salary;
-
-
-        String formattedResult = "Last      First     Salary    \n------------------------------\n";
-        // Loop through the file line by line
-        while(reader.hasNextLine())
-        {
-            // Read the three values in each line
-            lastName = reader.next();
-            firstName = reader.next();
-            salary = reader.next();
-
-            // Format the string for each line (10 characters per value, left aligned)
-            formattedResult += String.format("%-10s%-10s%-10s\n", lastName, firstName, salary);
-        }
-        reader.close();
-        return formattedResult;
     }
 }
